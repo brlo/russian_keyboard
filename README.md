@@ -1,42 +1,43 @@
-### RussianKeyboard
+# RussianKeyboard
 
 The Ruby tool which fix your wrong keyboard layout.
 Repair original text which was written at wrong keyboard layout.
 
-Короче, гем исправляет текст набранный в неправильной раскладке клавиатуры. Русскому человеку знакомо это чувство.
+Короче, gem исправляет текст набранный в неправильной раскладке клавиатуры. Русскому человеку знакомо это чувство.
 
 This gem can switch this `Ghbdtn! Lf 'nj ;t utv #1!` to this `Привет! Да это же гем №1!`, or this string `Руддщб икдщ! Ершы шы ьн афмщкшеу пуь!` to this `Hello, bro! This is my favorite gem!`
 
-### Usage examples:
+## Usage examples:
+
 ```ruby
-"Ghbdtn!".switch_keys(:to_ru)
+RussianKeyboard.to_ru('Ghbdtn!')
 => "Привет!"
 
-"Реддщ!".switch_keys(:to_en)
+RussianKeyboard.to_en('Руддщ!')
 => "Hello!"
 
-str = "Руддщб ьн акшутв!"
-str.switch_keys
-=> "Hello my friend!"
+RussianKeyboard.auto_switch('Руддщб ьн акшутв!')
+=> "Hello, my friend!"
 
-str.switch_keys
-=> "Руддщб ьн акшутв!"
+RussianKeyboard.gues_keymap('привет')
+=> "ru"
 
-str.switch_keys! :to_en
-puts str
-=> "Hello my friend!"
-
-
-Additional commands:
-
-RussianKeyboard.to_ru str
-RussianKeyboard.to_en str
-RussianKeyboard.auto_switch str
-
+RussianKeyboard.gues_keymap('hello')
+=> "en"
 ```
 
-### INSTALL
-Add gemname to gemfile
+## INSTALL
+
 ```
-gem "russian_keyboard"
+gem 'russian_keyboard'
 ```
+
+
+## Contributing
+
+* Fork the project.
+* Run `bundle install`
+* Run `bundle exec guard`
+* Make your feature addition or bug fix.
+* Add tests for it. This is important.
+* Send me a pull request.
